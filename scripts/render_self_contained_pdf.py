@@ -51,7 +51,7 @@ class Parse(HTMLParser):
 
 parser=Parse();parser.feed(SOURCE.read_text())
 slides=parser.root.all('section',cls='slide')
-assert len(slides)==18
+assert len(slides)==19
 DOC=fitz.open()
 BG=(247/255,244/255,238/255)
 INK=(36/255,35/255,33/255)
@@ -156,6 +156,20 @@ def draw_table(page,node,cols,top=224,rowheight=54,size=22):
     return top
 
 
+def draw_equation(page,formula,rect):
+    import io
+    import matplotlib
+    matplotlib.use('Agg')
+    from matplotlib.mathtext import math_to_image
+    from matplotlib.font_manager import FontProperties
+    image=io.BytesIO()
+    math_to_image('$'+formula+'$',image,prop=FontProperties(size=38),format='svg',color='#242321')
+    equation_svg=re.sub(rb'<g id="patch_1">.*?</g>',b'',image.getvalue(),flags=re.S)
+    source=fitz.open(stream=equation_svg,filetype='svg')
+    vector=fitz.open(stream=source.convert_to_pdf(),filetype='pdf')
+    page.show_pdf_page(fitz.Rect(rect),vector,0)
+
+
 for index,section in enumerate(slides,1):
     OVERLAY=[]
     page=DOC.new_page(width=1280,height=720)
@@ -187,8 +201,24 @@ for index,section in enumerate(slides,1):
         articles=body.first(cls='interpretation').all('article')
         for a,x in zip(articles,(64,664)):
             draw_html(page,(x,490,x+552,596),a.inner(),20,label='chart interpretation')
-    elif index in (5,11,12,16):
-        widths={5:[240,824,88],11:[600,276,276],12:[240,456,456],16:[160,248,248,248,248]}[index]
+    elif 'parameter-slide' in section.attrs.get('class',''):
+        articles=body.first(cls='parameter-top').all('article')
+        for a,x in zip(articles,(64,664)):
+            draw_html(page,(x,224,x+552,268),a.first('h3').outer(),22,label='parameter heading')
+            draw_html(page,(x,360,x+552,440),a.first('p').outer(),20,label='symbol definitions')
+        draw_equation(page,r'h=\frac{1}{N+1}',(200,268,480,346))
+        draw_equation(page,r'r=\frac{\alpha\Delta t}{h^2}',(800,268,1080,346))
+        for a,x in zip(body.first(cls='parameter-insights').all('article'),(64,664)):
+            draw_html(page,(x,452,x+552,596),a.inner(),20,label='fixed-r interpretation')
+    elif 'correctness-slide' in section.attrs.get('class',''):
+        for i,a in enumerate(body.first(cls='correctness-checks').all('article')):
+            y=224+i*124
+            page.insert_text((64,y+24),f'{i+1:02d}',fontname='cour',fontsize=18,color=ACCENT)
+            detail=next(c for c in a.children if isinstance(c,Node) and c.tag=='div')
+            draw_html(page,(120,y,1216,y+116),detail.inner(),21,label='correctness check')
+            if i<2:page.draw_line((120,y+112),(1216,y+112),color=BORDER,width=1)
+    elif index in (5,11,12,17):
+        widths={5:[240,824,88],11:[600,276,276],12:[240,456,456],17:[160,248,248,248,248]}[index]
         end=draw_table(page,body.first('table'),widths,rowheight=72 if index==5 else 42 if index==12 else 54,size=20 if index==5 else 22)
         if index==5:
             count=body.first(cls='experiment-count')
@@ -207,13 +237,13 @@ for index,section in enumerate(slides,1):
         svg(page,figure.first('svg'),(64,224,616,496))
         draw_html(page,(64,508,616,584),figure.first('figcaption').inner(),18,label='halo caption')
         draw_html(page,(664,224,1216,590),body.first('article').inner(),21,label='MPI explanation')
-    elif index in (4,6,17):
+    elif index in (4,6):
         articles=body.first(cls='two-col').all('article')
         for a,x in zip(articles,(64,664)):
             draw_html(page,(x,224,x+552,510 if index in (4,6) else 590),a.inner(),20 if index in (4,6) else 21,label='explanation column')
         strips=body.all(cls='accuracy-strip')
         if strips:draw_html(page,(64,526,1216,592),strips[0].inner(),19,label='accuracy and placement')
-    elif index==18:
+    elif index==19:
         points=body.first(cls='conclusion-points').all('article')
         y=224
         for i,a in enumerate(points,1):
@@ -230,7 +260,7 @@ for index,section in enumerate(slides,1):
     page.draw_line((64,600),(1216,600),color=BORDER,width=1)
     page.draw_line((64,662),(1216,662),color=BORDER,width=1)
     page.insert_text((64,690),'Extended study 12312735 · Jacobi and CG · Self-contained edition',fontsize=14,color=SECONDARY)
-    counter=f'{index:02d} / 18'
+    counter=f'{index:02d} / {len(slides)}'
     page.insert_text((1216-fitz.get_text_length(counter,fontsize=14),690),counter,fontsize=14,color=SECONDARY)
     for point,value,size,color in OVERLAY:
         page.insert_text(point,value,fontsize=size,color=color)

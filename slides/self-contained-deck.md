@@ -1,6 +1,6 @@
 # Self-contained presentation
 
-The separate 18-slide edition is `implicit-heat-self-contained.html`, with `implicit-heat-self-contained.pdf` for sharing or projection. It preserves the original deck's paper, graphite, orange, and temperature-field visual language.
+The separate 19-slide edition is `implicit-heat-self-contained.html`, with `implicit-heat-self-contained.pdf` for sharing or projection. It preserves the original deck's paper, graphite, orange, and temperature-field visual language.
 
 The original `implicit-heat-presentation.html` and `.pdf`, and the older `presentation.md` and `.pdf`, remain byte-for-byte unchanged.
 
@@ -11,6 +11,8 @@ The original `implicit-heat-presentation.html` and `.pdf`, and the older `presen
 - Describes timing, warm-up/reset, accuracy checks, and process placement.
 - Gives each grid size and each weak-scaling metric its own visible slide. Essential findings require no toggles or speaker notes.
 - Includes interpretation next to each result, rather than relying on a separate speaking script.
+- Slide 14 explains h = 1/(N+1) and r = αΔt/h², defines their symbols, and connects fixed r to smaller physical timesteps on finer grids.
+- Slide 18 simplifies correctness into three checks: trusted temperature answers, consistent parallel results, and the same residual tolerance for every timed solve.
 - Retains the waiting/imbalance caveat, one-node versus two-node baseline distinction, and different physical durations at fixed r.
 
 The audience is assumed to read the deck in order. Speaker notes contain supplementary provenance. All essential explanations are visible in both deliverables.
@@ -24,12 +26,12 @@ python3 scripts/build_self_contained_deck.py
 python3 scripts/render_self_contained_pdf.py
 ```
 
-The builder reads the original HTML and verifies its 56 embedded rows against the current summary CSV, then writes only the new HTML file. The PDF renderer uses PyMuPDF and the same visible text and SVG evidence. It renders directly without opening a browser; line breaks can differ from browser printing. Both formats target desktop viewing and 16:9 projection.
+The builder reads the original HTML and verifies its 56 embedded rows against the current summary CSV, then writes only the new HTML file. The PDF renderer uses PyMuPDF for the same visible text and SVG evidence, and Matplotlib for equation typesetting. It renders directly without opening a browser; line breaks can differ from browser printing. Both formats target desktop viewing and 16:9 projection.
 
 ## Verification
 
 - Original deck file hashes checked before and after generation.
-- Eighteen slides and PDF pages verified.
+- Nineteen slides and PDF pages verified.
 - All essential chart states included visibly, with units, parameters, and interpretation.
 - Measured data compared with the source summary CSV.
 - Generated JavaScript syntax checked with Node.

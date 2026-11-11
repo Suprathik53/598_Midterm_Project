@@ -95,7 +95,7 @@ add('What the 56 experiment groups contain',
         ['Weak scaling', '2 solvers × (N, P) = (256, 1), (512, 4),<br>(1024, 16), (2048, 64); r = 2', '8'],
         ['Timestep sensitivity', '2 solvers × N = 512, 1024 × r = 0.5, 2, 8<br>P = 16', '12'],
     ], 'The 56 study-specific experiment groups')+'<div class="experiment-count"><strong>56 groups × 5 trials = 280 runs</strong><p>Every run measures five physical time steps. Some numerical settings repeat across studies; they remain separate experiment groups.</p></div>',
-    'The timestep parameter r sets the size of a physical step relative to grid spacing; its effect is explained on slides 15–16.',
+    'The timestep parameter r sets the size of a physical step relative to grid spacing; see slide 14 and the sensitivity results on slides 16–17.',
     'Source: scripts/extended_matrix.py and results/extended-analysis-12312735/summary.csv. There are 56 study-specific groups, not 56 distinct tuples after removing the study label.', 'Experiment')
 
 add('How the timings were collected',
@@ -155,6 +155,13 @@ add('Weak-scaling runtime increases overall',
     'A perfectly flat curve would indicate constant runtime. Here, changing iteration counts also affect the curve; the next slide separates that effect.',
     'Source: summary.csv, study=weak. These are separate weak-study measurements, not reused strong-study records. Medians use five trials.', 'Weak scaling', 'chart-slide')
 
+add('Why fixed r changes the timestep',
+    'In weak scaling, the global grid gets finer on the same unit plate. Diffusivity α = 1 and the chosen r = 2 stay fixed.',
+    '<div class="parameter-top two-col"><article><h3>Grid spacing</h3><div class="equation-display" aria-label="h equals one divided by N plus one">h = <span class="fraction"><span>1</span><span>N + 1</span></span></div><p><strong>N:</strong> interior grid points along each side.<br><strong>h:</strong> distance between neighboring points.</p></article><article><h3>Fourier number</h3><div class="equation-display" aria-label="r equals alpha times delta t divided by h squared">r = <span class="fraction"><span>α Δt</span><span>h²</span></span></div><p><strong>r:</strong> dimensionless timestep parameter.<br><strong>α:</strong> thermal diffusivity; <strong>Δt:</strong> physical time per step.</p></article></div><div class="parameter-insights two-col">'+textcol('A finer grid means smaller steps', 'At fixed r and α, Δt is proportional to h². Halving h makes the physical timestep one quarter as large.')+textcol('The initial guess can improve', 'Both solvers start from x = b, the current field. A smaller step changes temperatures less, helping the guess start closer to the next field.')+'</div>',
+    'Fixed cells per rank do not imply fixed iteration counts: a finer global grid also changes the numerical workload.',
+    'Sources: src/main.cpp, Options and reported h/dt; report/report.md. For a unit square h=1/(N+1), and dt=r*h*h/alpha. Smaller physical steps and changes in the sampled system help explain the recorded update-count reductions; a controlled decomposition of their effects was not measured.',
+    'Weak scaling', 'parameter-slide')
+
 add('Per-update time exposes hidden overhead',
     'Same weak-scaling runs. Time per update = total measured solve time divided by total solver updates.',
     result_chart(9,1,'The cost per update rises', 'Jacobi: 0.127 to 0.289 ms. CG: 0.262 to 1.027 ms, from 1 to 64 ranks.', 'Fewer updates partly mask that rise', 'Jacobi update counts fall from 550 to 400; CG counts fall from 59 to 22 across the five steps.'),
@@ -177,11 +184,12 @@ add('More iterations explain the extra time',
     'A larger timestep is not automatically the cheaper or more accurate choice. Equal step counts do not imply equal simulated durations.',
     'Source: summary.csv, study=timestep, N=1024, P=16. Times are medians; all trials pass the independent true-residual check.', 'Timestep study')
 
-add('Correctness checks and interpretation limits',
-    'Every benchmark passed the same independently recomputed relative-residual tolerance of 10⁻⁸.',
-    '<div class="two-col limits-explanation">'+textcol('Why trust the computed solutions?', 'Tests match an independent serial solver and analytic sine solution. They also cover refinement, halos, physical boundaries, uneven partitions, and failure cases.', '<p>All 280 runs passed. The maximum residual was <strong>9.985 × 10⁻⁹</strong>. Diagnostics checked timing selection and rejected a CG result with a misleading internal residual.</p>')+textcol('What the measurements cannot establish', 'MPI time includes waiting and imbalance. P = 1 uses one node while larger P uses two, so topology and rank count change together.', '<p>Trials share one allocation; they do not capture day-to-day variation. Fixed r changes the physical timestep with N. Results depend on this initial field, tolerance, hardware, and implementation.</p>')+'</div>',
-    'Residual tolerance checks the linear solve. It does not by itself guarantee that different grids and timesteps have the same physical accuracy.',
-    'Sources: tests/test_integration.py, tests/test_stencil.cpp, tests/test_diagnostics.py, results/validation-12312723.log, and raw extended records. No same-P one-node versus two-node control was measured.', 'Validation')
+add('What we check before comparing speed',
+    'A faster runtime is meaningful only if the solver returns a correct, sufficiently converged temperature field.',
+    '<div class="correctness-checks"><article><span>01</span><div><h3>Are the computed temperatures correct?</h3><p>Compare small MPI results with an independent serial solver and a known analytic sine-mode solution.</p></div></article><article><span>02</span><div><h3>Does splitting the grid preserve the answer?</h3><p>Check results across process counts, uneven partitions, halo exchanges, and the zero-temperature plate edges.</p></div></article><article><span>03</span><div><h3>Did every timed solve converge accurately?</h3><p>Substitute the result into A x = b and measure the mismatch. All 280 runs passed the same residual tolerance, 10⁻⁸.</p></div></article></div>',
+    'These checks validate the implementation and linear solves. Physical simulation accuracy also depends on grid spacing and timestep size.',
+    'Sources: tests/test_integration.py, tests/test_stencil.cpp, tests/test_diagnostics.py, results/validation-12312723.log, and raw extended records. Maximum benchmark residual: 9.984918811161957e-9. Failure tests reject unconverged results. Timing diagnostics independently check critical-rank selection. Experiment limitations remain visible on the measurement, communication, and timestep slides.',
+    'Correctness', 'correctness-slide')
 
 add('What the study establishes',
     'Two solvers, the same implicit heat model, and 280 validated measurements on a two-node allocation.',
@@ -190,13 +198,13 @@ add('What the study establishes',
     'Sources: README.md, report/report.pdf, and results/extended-analysis-12312735/summary.csv. This deck is a separate explanatory edition; the original deck is preserved.', 'Conclusions')
 
 count = len(slides)
-assert count == 18
+assert count == 19
 content = ''.join(slides).replace('TOTAL_SLIDES', str(count))
 start = source.index('<div class="stage">')+len('<div class="stage">')
 end = source.index('</section>', source.index('id="slide-12"',start))+len('</section>')
 result = source[:start]+content+source[end:]
 result = result.replace('<span id="slideCounter" class="slide-counter" aria-live="polite">1 / 12</span>',f'<span id="slideCounter" class="slide-counter" aria-live="polite">1 / {count}</span>')
-result = result.replace('A 12-slide MPI heat diffusion presentation', 'An 18-slide self-contained MPI heat diffusion presentation')
+result = result.replace('A 12-slide MPI heat diffusion presentation', 'A 19-slide self-contained MPI heat diffusion presentation')
 result = result.replace('<title>Implicit heat diffusion · Jacobi and CG</title>', '<title>Implicit heat diffusion · Self-contained edition</title>')
 result = result.replace('<span class="header-context">Jacobi / Conjugate gradient</span>', '<span class="header-context">Self-contained edition · Jacobi / CG</span>')
 result = result.replace("getItem('heat-viz-theme')", "getItem('heat-self-contained-theme')").replace("setItem('heat-viz-theme'", "setItem('heat-self-contained-theme'")
@@ -247,6 +255,21 @@ css = '''
 .compact-insight h3 { font-size:24px; margin-bottom:12px; }
 .compact-insight p { font-size:21px; line-height:1.35; margin:0; }
 .limits-explanation p { font-size:21px; line-height:1.4; }
+.parameter-top h3 { margin-bottom:12px; }
+.equation-display { display:flex; justify-content:center; align-items:center; gap:20px; min-height:84px; margin:12px 0; font-size:42px; line-height:1.1; }
+.fraction { display:inline-flex; flex-direction:column; align-items:center; min-width:120px; font-size:36px; }
+.fraction>span:first-child { width:100%; text-align:center; padding:0 12px 6px; border-bottom:2px solid var(--text); }
+.fraction>span:last-child { padding-top:6px; }
+.parameter-top p { font-size:20px; line-height:1.4; margin:12px 0 0; }
+.parameter-insights { margin-top:28px; }
+.parameter-insights h3 { font-size:23px; margin-bottom:12px; }
+.parameter-insights p { font-size:21px; line-height:1.35; margin:0; }
+.correctness-checks { display:flex; flex-direction:column; gap:16px; }
+.correctness-checks article { display:grid; grid-template-columns:40px minmax(0,1fr); gap:16px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+.correctness-checks article:last-child { border:0; }
+.correctness-checks article>span { font-size:18px; font-family:ui-monospace,monospace; color:var(--accent); padding-top:4px; }
+.correctness-checks h3 { font-size:25px; line-height:1.2; font-weight:500; margin-bottom:8px; }
+.correctness-checks p { font-size:21px; line-height:1.35; color:var(--text-secondary); }
 .conclusion-layout { display:grid; grid-template-columns:1.45fr 1fr; gap:64px; }
 .conclusion-points article { padding-left:44px; position:relative; margin-bottom:24px; }
 .conclusion-points article>span { position:absolute; left:0; top:4px; font-family:ui-monospace,monospace; color:var(--accent); font-size:18px; }
