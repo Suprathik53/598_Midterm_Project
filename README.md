@@ -43,9 +43,9 @@ With Python 3, NumPy and Matplotlib installed, from the project root:
 
 ```bash
 python scripts/analyze_extended.py results/data/extended-12312735 --output results/extended-analysis-12312735
-python scripts/render_pdf.py
+python report/build_report.py
 ```
 
-These commands regenerate the extended-study CSV and plots, then render the checked-in Markdown report and slides to PDF. The Markdown deliverables summarize the measured extended data; review and update them if the underlying measurements change. Only successful records with a passing true residual are used; failures are listed. The field figure uses a separate small cluster run and is not a performance measurement. `results/core-12296980` is an earlier heterogeneous-node run and is retained for provenance. The legacy `scripts/analyze.py` regenerates the original three-trial report and slides and would overwrite the updated Markdown; do not run it over the current deliverables without backing them up.
+These commands regenerate the extended-study CSV and plots, then build the revised article-style report as PDF, LaTeX, and Markdown. The report builder requires Matplotlib and PyMuPDF; see `report/README.md` for LaTeX compilation and source packaging. Review the report narrative if the underlying measurements change. Only successful records with a passing true residual are used; failures are listed. The field figure uses a separate small cluster run and is not a performance measurement. `results/core-12296980` is an earlier heterogeneous-node run and is retained for provenance. The legacy `scripts/analyze.py` regenerates the original three-trial report and slides and would overwrite the updated Markdown. The legacy `scripts/render_pdf.py` renders the original Markdown slides and also overwrites the report PDF with its older layout. Do not run either over the revised deliverables without backing them up.
 
 All repetitions of a configuration share one allocation and were taken close in time. MPI timing includes wait and imbalance; crossovers are therefore operational, not direct measurements of network latency. P=1 and P≥2 differ in node count. Full per-rank timing distributions and separate step timings were not recorded in the measured core run; do not infer them from the aggregate breakdown.
