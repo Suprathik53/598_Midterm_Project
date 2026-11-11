@@ -1,0 +1,105 @@
+Tue Nov 10 20:20:11 UTC 2026
+ccc0391.campuscluster.illinois.edu
+
+Currently Loaded Modules:
+  1) lmod   2) os_paths   3) StdEnv   4) openmpi/5.0.1-gcc-13.3.0
+
+ 
+
+mpirun (Open MPI) 5.0.1
+
+Report bugs to https://www.open-mpi.org/community/help/
+g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+cmake version 3.31.8
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           48 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  128
+On-line CPU(s) list:                     0-127
+Vendor ID:                               AuthenticAMD
+Model name:                              AMD EPYC 7713 64-Core Processor
+CPU family:                              25
+Model:                                   1
+Thread(s) per core:                      1
+Core(s) per socket:                      64
+Socket(s):                               2
+Stepping:                                1
+BogoMIPS:                                3992.68
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd amd_ppin brs arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca debug_swap
+Virtualization:                          AMD-V
+L1d cache:                               4 MiB (128 instances)
+L1i cache:                               4 MiB (128 instances)
+L2 cache:                                64 MiB (128 instances)
+L3 cache:                                512 MiB (16 instances)
+NUMA node(s):                            2
+NUMA node0 CPU(s):                       0-63
+NUMA node1 CPU(s):                       64-127
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Old microcode:             Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Mitigation; Safe RET
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Mitigation; Clear CPU buffers
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Mitigation; IBPB before exit to userspace
+SLURM_JOB_USER=sv53
+SLURM_TASKS_PER_NODE=32(x2)
+SLURM_JOB_UID=1242111
+SLURM_TASK_PID=3180178
+SLURM_LOCALID=0
+SLURM_SUBMIT_DIR=/u/sv53/implicit-heat-extended-20261110
+SLURM_JOB_START_TIME=1794341999
+SLURM_CLUSTER_NAME=icc
+SLURM_JOB_END_TIME=1794345599
+SLURM_CPUS_ON_NODE=128
+SLURM_JOB_CPUS_PER_NODE=128(x2)
+SLURM_GTIDS=0
+SLURM_JOB_PARTITION=eng-instruction
+SLURM_TRES_PER_TASK=cpu=1
+SLURM_OOM_KILL_STEP=0
+SLURM_JOB_NUM_NODES=2
+SLURM_STEPID=-5
+SLURM_JOBID=12312735
+SLURM_JOB_QOS=normal
+SLURM_JOB_DEPENDENCY=afterok:12312723
+SLURM_JOB_EXCLUSIVE=NODE
+SLURM_PROCID=0
+SLURM_CPUS_PER_TASK=1
+SLURM_NTASKS=64
+SLURM_TOPOLOGY_ADDR=ccc0391
+SLURM_TOPOLOGY_ADDR_PATTERN=node
+SLURM_MEM_PER_CPU=2100
+SLURM_NODELIST=ccc[0391-0392]
+SLURM_STEP_ID=-5
+SLURM_JOB_ACCOUNT=26fa-cs598pa-eng
+SLURM_PRIO_PROCESS=0
+SLURM_NPROCS=64
+SLURM_NNODES=2
+SLURM_SUBMIT_HOST=cc-login2.campuscluster.illinois.edu
+SLURM_JOB_ID=12312735
+SLURM_NODEID=0
+SLURM_JOB_OVERSUBSCRIBE=NO
+SLURM_JOB_SLUID=s451M73HSQDX00
+SLURM_MPI_TYPE=pmi2
+SLURM_CONF=/var/spool/slurmd/conf-cache/slurm.conf
+SLURM_JOB_NAME=heat-extended
+SLURM_NTASKS_PER_NODE=32
+SLURM_JOB_GID=51000
+SLURM_JOB_NODELIST=ccc[0391-0392]

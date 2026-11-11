@@ -1,0 +1,225 @@
+-- The CXX compiler identification is GNU 11.5.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found MPI_CXX: /sw/apps/mpi/openmpi/5.0.1/gcc/13.3.0/lib/libmpi.so (found version "3.1")
+-- Found MPI: TRUE (found version "3.1")
+-- Configuring done (1.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /u/sv53/implicit-heat-validation-final-20261110/build
+[ 50%] Building CXX object CMakeFiles/implicit_heat.dir/src/main.cpp.o
+[ 50%] Building CXX object CMakeFiles/test_stencil.dir/tests/test_stencil.cpp.o
+[ 75%] Linking CXX executable implicit_heat
+[ 75%] Built target implicit_heat
+[100%] Linking CXX executable test_stencil
+[100%] Built target test_stencil
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: component_find: searching NULL for ras components
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: find_dyn_components: checking NULL for ras components
+[ccc0398.campuscluster.illinois.edu:3267967] pmix:mca: base: components_register: registering framework ras components
+[ccc0398.campuscluster.illinois.edu:3267967] pmix:mca: base: components_register: found loaded component simulator
+[ccc0398.campuscluster.illinois.edu:3267967] pmix:mca: base: components_register: component simulator register function successful
+[ccc0398.campuscluster.illinois.edu:3267967] pmix:mca: base: components_register: found loaded component testrm
+[ccc0398.campuscluster.illinois.edu:3267967] pmix:mca: base: components_register: component testrm register function successful
+[ccc0398.campuscluster.illinois.edu:3267967] pmix:mca: base: components_register: found loaded component pbs
+[ccc0398.campuscluster.illinois.edu:3267967] pmix:mca: base: components_register: component pbs register function successful
+[ccc0398.campuscluster.illinois.edu:3267967] pmix:mca: base: components_register: found loaded component slurm
+[ccc0398.campuscluster.illinois.edu:3267967] pmix:mca: base: components_register: component slurm register function successful
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: components_open: opening ras components
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: components_open: found loaded component simulator
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: components_open: found loaded component testrm
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: components_open: found loaded component pbs
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: components_open: component pbs open function successful
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: components_open: found loaded component slurm
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: components_open: component slurm open function successful
+[ccc0398.campuscluster.illinois.edu:3267967] mca:base:select: Auto-selecting ras components
+[ccc0398.campuscluster.illinois.edu:3267967] mca:base:select:(  ras) Querying component [simulator]
+[ccc0398.campuscluster.illinois.edu:3267967] mca:base:select:(  ras) Querying component [testrm]
+[ccc0398.campuscluster.illinois.edu:3267967] mca:base:select:(  ras) Querying component [pbs]
+[ccc0398.campuscluster.illinois.edu:3267967] mca:base:select:(  ras) Querying component [slurm]
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:slurm: available for selection
+[ccc0398.campuscluster.illinois.edu:3267967] mca:base:select:(  ras) Query of component [slurm] set priority to 50
+[ccc0398.campuscluster.illinois.edu:3267967] mca:base:select:(  ras) Selected component [slurm]
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: close: unloading component simulator
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: close: unloading component testrm
+[ccc0398.campuscluster.illinois.edu:3267967] mca: base: close: unloading component pbs
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:base:allocate
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:slurm:allocate:discover: checking nodelist: ccc0398
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:slurm:allocate:discover: found node ccc0398
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:slurm:allocate:discover: adding node ccc0398 (4 slots)
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:slurm:allocate: success
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:base:node_insert inserting 1 nodes
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:base:node_insert updating HNP [ccc0398] info to 4 slots
+
+======================   ALLOCATED NODES   ======================
+    ccc0398: slots=4 max_slots=0 slots_inuse=0 state=UP
+	Flags: DAEMON_LAUNCHED:LOCATION_VERIFIED:SLOTS_GIVEN
+	aliases: ccc0398.campuscluster.illinois.edu,ccc0398
+=================================================================
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:base:allocate
+[ccc0398.campuscluster.illinois.edu:3267967] [prterun-ccc0398-3267967@0,0] ras:base:allocate allocation already read
+PASS direct stencil and both Cartesian orientations
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: component_find: searching NULL for ras components
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: find_dyn_components: checking NULL for ras components
+[ccc0398.campuscluster.illinois.edu:3267973] pmix:mca: base: components_register: registering framework ras components
+[ccc0398.campuscluster.illinois.edu:3267973] pmix:mca: base: components_register: found loaded component simulator
+[ccc0398.campuscluster.illinois.edu:3267973] pmix:mca: base: components_register: component simulator register function successful
+[ccc0398.campuscluster.illinois.edu:3267973] pmix:mca: base: components_register: found loaded component testrm
+[ccc0398.campuscluster.illinois.edu:3267973] pmix:mca: base: components_register: component testrm register function successful
+[ccc0398.campuscluster.illinois.edu:3267973] pmix:mca: base: components_register: found loaded component pbs
+[ccc0398.campuscluster.illinois.edu:3267973] pmix:mca: base: components_register: component pbs register function successful
+[ccc0398.campuscluster.illinois.edu:3267973] pmix:mca: base: components_register: found loaded component slurm
+[ccc0398.campuscluster.illinois.edu:3267973] pmix:mca: base: components_register: component slurm register function successful
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: components_open: opening ras components
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: components_open: found loaded component simulator
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: components_open: found loaded component testrm
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: components_open: found loaded component pbs
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: components_open: component pbs open function successful
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: components_open: found loaded component slurm
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: components_open: component slurm open function successful
+[ccc0398.campuscluster.illinois.edu:3267973] mca:base:select: Auto-selecting ras components
+[ccc0398.campuscluster.illinois.edu:3267973] mca:base:select:(  ras) Querying component [simulator]
+[ccc0398.campuscluster.illinois.edu:3267973] mca:base:select:(  ras) Querying component [testrm]
+[ccc0398.campuscluster.illinois.edu:3267973] mca:base:select:(  ras) Querying component [pbs]
+[ccc0398.campuscluster.illinois.edu:3267973] mca:base:select:(  ras) Querying component [slurm]
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:slurm: available for selection
+[ccc0398.campuscluster.illinois.edu:3267973] mca:base:select:(  ras) Query of component [slurm] set priority to 50
+[ccc0398.campuscluster.illinois.edu:3267973] mca:base:select:(  ras) Selected component [slurm]
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: close: unloading component simulator
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: close: unloading component testrm
+[ccc0398.campuscluster.illinois.edu:3267973] mca: base: close: unloading component pbs
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:base:allocate
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:slurm:allocate:discover: checking nodelist: ccc0398
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:slurm:allocate:discover: found node ccc0398
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:slurm:allocate:discover: adding node ccc0398 (4 slots)
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:slurm:allocate: success
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:base:node_insert inserting 1 nodes
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:base:node_insert updating HNP [ccc0398] info to 4 slots
+
+======================   ALLOCATED NODES   ======================
+    ccc0398: slots=4 max_slots=0 slots_inuse=0 state=UP
+	Flags: DAEMON_LAUNCHED:LOCATION_VERIFIED:SLOTS_GIVEN
+	aliases: ccc0398.campuscluster.illinois.edu,ccc0398
+=================================================================
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:base:allocate
+[ccc0398.campuscluster.illinois.edu:3267973] [prterun-ccc0398-3267973@0,0] ras:base:allocate allocation already read
+PASS direct stencil and both Cartesian orientations
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: component_find: searching NULL for ras components
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: find_dyn_components: checking NULL for ras components
+[ccc0398.campuscluster.illinois.edu:3267982] pmix:mca: base: components_register: registering framework ras components
+[ccc0398.campuscluster.illinois.edu:3267982] pmix:mca: base: components_register: found loaded component simulator
+[ccc0398.campuscluster.illinois.edu:3267982] pmix:mca: base: components_register: component simulator register function successful
+[ccc0398.campuscluster.illinois.edu:3267982] pmix:mca: base: components_register: found loaded component testrm
+[ccc0398.campuscluster.illinois.edu:3267982] pmix:mca: base: components_register: component testrm register function successful
+[ccc0398.campuscluster.illinois.edu:3267982] pmix:mca: base: components_register: found loaded component pbs
+[ccc0398.campuscluster.illinois.edu:3267982] pmix:mca: base: components_register: component pbs register function successful
+[ccc0398.campuscluster.illinois.edu:3267982] pmix:mca: base: components_register: found loaded component slurm
+[ccc0398.campuscluster.illinois.edu:3267982] pmix:mca: base: components_register: component slurm register function successful
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: components_open: opening ras components
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: components_open: found loaded component simulator
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: components_open: found loaded component testrm
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: components_open: found loaded component pbs
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: components_open: component pbs open function successful
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: components_open: found loaded component slurm
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: components_open: component slurm open function successful
+[ccc0398.campuscluster.illinois.edu:3267982] mca:base:select: Auto-selecting ras components
+[ccc0398.campuscluster.illinois.edu:3267982] mca:base:select:(  ras) Querying component [simulator]
+[ccc0398.campuscluster.illinois.edu:3267982] mca:base:select:(  ras) Querying component [testrm]
+[ccc0398.campuscluster.illinois.edu:3267982] mca:base:select:(  ras) Querying component [pbs]
+[ccc0398.campuscluster.illinois.edu:3267982] mca:base:select:(  ras) Querying component [slurm]
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:slurm: available for selection
+[ccc0398.campuscluster.illinois.edu:3267982] mca:base:select:(  ras) Query of component [slurm] set priority to 50
+[ccc0398.campuscluster.illinois.edu:3267982] mca:base:select:(  ras) Selected component [slurm]
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: close: unloading component simulator
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: close: unloading component testrm
+[ccc0398.campuscluster.illinois.edu:3267982] mca: base: close: unloading component pbs
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:base:allocate
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:slurm:allocate:discover: checking nodelist: ccc0398
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:slurm:allocate:discover: found node ccc0398
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:slurm:allocate:discover: adding node ccc0398 (4 slots)
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:slurm:allocate: success
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:base:node_insert inserting 1 nodes
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:base:node_insert updating HNP [ccc0398] info to 4 slots
+
+======================   ALLOCATED NODES   ======================
+    ccc0398: slots=4 max_slots=0 slots_inuse=0 state=UP
+	Flags: DAEMON_LAUNCHED:LOCATION_VERIFIED:SLOTS_GIVEN
+	aliases: ccc0398.campuscluster.illinois.edu,ccc0398
+=================================================================
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:base:allocate
+[ccc0398.campuscluster.illinois.edu:3267982] [prterun-ccc0398-3267982@0,0] ras:base:allocate allocation already read
+PASS direct stencil and both Cartesian orientations
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: component_find: searching NULL for ras components
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: find_dyn_components: checking NULL for ras components
+[ccc0398.campuscluster.illinois.edu:3267994] pmix:mca: base: components_register: registering framework ras components
+[ccc0398.campuscluster.illinois.edu:3267994] pmix:mca: base: components_register: found loaded component simulator
+[ccc0398.campuscluster.illinois.edu:3267994] pmix:mca: base: components_register: component simulator register function successful
+[ccc0398.campuscluster.illinois.edu:3267994] pmix:mca: base: components_register: found loaded component testrm
+[ccc0398.campuscluster.illinois.edu:3267994] pmix:mca: base: components_register: component testrm register function successful
+[ccc0398.campuscluster.illinois.edu:3267994] pmix:mca: base: components_register: found loaded component pbs
+[ccc0398.campuscluster.illinois.edu:3267994] pmix:mca: base: components_register: component pbs register function successful
+[ccc0398.campuscluster.illinois.edu:3267994] pmix:mca: base: components_register: found loaded component slurm
+[ccc0398.campuscluster.illinois.edu:3267994] pmix:mca: base: components_register: component slurm register function successful
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: components_open: opening ras components
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: components_open: found loaded component simulator
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: components_open: found loaded component testrm
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: components_open: found loaded component pbs
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: components_open: component pbs open function successful
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: components_open: found loaded component slurm
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: components_open: component slurm open function successful
+[ccc0398.campuscluster.illinois.edu:3267994] mca:base:select: Auto-selecting ras components
+[ccc0398.campuscluster.illinois.edu:3267994] mca:base:select:(  ras) Querying component [simulator]
+[ccc0398.campuscluster.illinois.edu:3267994] mca:base:select:(  ras) Querying component [testrm]
+[ccc0398.campuscluster.illinois.edu:3267994] mca:base:select:(  ras) Querying component [pbs]
+[ccc0398.campuscluster.illinois.edu:3267994] mca:base:select:(  ras) Querying component [slurm]
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:slurm: available for selection
+[ccc0398.campuscluster.illinois.edu:3267994] mca:base:select:(  ras) Query of component [slurm] set priority to 50
+[ccc0398.campuscluster.illinois.edu:3267994] mca:base:select:(  ras) Selected component [slurm]
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: close: unloading component simulator
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: close: unloading component testrm
+[ccc0398.campuscluster.illinois.edu:3267994] mca: base: close: unloading component pbs
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:base:allocate
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:slurm:allocate:discover: checking nodelist: ccc0398
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:slurm:allocate:discover: found node ccc0398
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:slurm:allocate:discover: adding node ccc0398 (4 slots)
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:slurm:allocate: success
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:base:node_insert inserting 1 nodes
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:base:node_insert updating HNP [ccc0398] info to 4 slots
+
+======================   ALLOCATED NODES   ======================
+    ccc0398: slots=4 max_slots=0 slots_inuse=0 state=UP
+	Flags: DAEMON_LAUNCHED:LOCATION_VERIFIED:SLOTS_GIVEN
+	aliases: ccc0398.campuscluster.illinois.edu,ccc0398
+=================================================================
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:base:allocate
+[ccc0398.campuscluster.illinois.edu:3267994] [prterun-ccc0398-3267994@0,0] ras:base:allocate allocation already read
+PASS direct stencil and both Cartesian orientations
+PASS jacobi nondivisible N=17 P=1, iterations=320
+PASS jacobi nondivisible N=17 P=2, iterations=320
+PASS jacobi nondivisible N=17 P=3, iterations=320
+PASS jacobi nondivisible N=17 P=4, iterations=320
+PASS jacobi discrete analytic sine
+PASS jacobi independent dense serial solve
+PASS jacobi independently recomputed true residual: 5.923262265436707e-11
+PASS jacobi zero RHS
+PASS jacobi initially converged nonzero RHS
+PASS jacobi single-cell rank blocks
+PASS jacobi nonconvergence
+PASS jacobi convergence on final allowed update
+PASS jacobi fixed-time continuous refinement: [0.036806218790868914, 0.008896627146724465, 0.002165189554178282]
+PASS cg nondivisible N=17 P=1, iterations=77
+PASS cg nondivisible N=17 P=2, iterations=77
+PASS cg nondivisible N=17 P=3, iterations=77
+PASS cg nondivisible N=17 P=4, iterations=77
+PASS cg discrete analytic sine
+PASS cg independent dense serial solve
+PASS cg independently recomputed true residual: 9.274288510734305e-11
+PASS cg zero RHS
+PASS cg initially converged nonzero RHS
+PASS cg single-cell rank blocks
+PASS cg nonconvergence
+PASS cg convergence on final allowed update
+PASS cg fixed-time continuous refinement: [0.036806218779571735, 0.008896627107669487, 0.002165189453776849]
+PASS invalid decomposition and arguments on multiple ranks
+All integration tests passed.

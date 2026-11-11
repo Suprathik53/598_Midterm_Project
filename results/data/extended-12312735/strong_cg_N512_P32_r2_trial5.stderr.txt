@@ -1,0 +1,40 @@
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: component_find: searching NULL for ras components
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: find_dyn_components: checking NULL for ras components
+[ccc0391.campuscluster.illinois.edu:3182943] pmix:mca: base: components_register: registering framework ras components
+[ccc0391.campuscluster.illinois.edu:3182943] pmix:mca: base: components_register: found loaded component simulator
+[ccc0391.campuscluster.illinois.edu:3182943] pmix:mca: base: components_register: component simulator register function successful
+[ccc0391.campuscluster.illinois.edu:3182943] pmix:mca: base: components_register: found loaded component testrm
+[ccc0391.campuscluster.illinois.edu:3182943] pmix:mca: base: components_register: component testrm register function successful
+[ccc0391.campuscluster.illinois.edu:3182943] pmix:mca: base: components_register: found loaded component pbs
+[ccc0391.campuscluster.illinois.edu:3182943] pmix:mca: base: components_register: component pbs register function successful
+[ccc0391.campuscluster.illinois.edu:3182943] pmix:mca: base: components_register: found loaded component slurm
+[ccc0391.campuscluster.illinois.edu:3182943] pmix:mca: base: components_register: component slurm register function successful
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: components_open: opening ras components
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: components_open: found loaded component simulator
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: components_open: found loaded component testrm
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: components_open: found loaded component pbs
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: components_open: component pbs open function successful
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: components_open: found loaded component slurm
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: components_open: component slurm open function successful
+[ccc0391.campuscluster.illinois.edu:3182943] mca:base:select: Auto-selecting ras components
+[ccc0391.campuscluster.illinois.edu:3182943] mca:base:select:(  ras) Querying component [simulator]
+[ccc0391.campuscluster.illinois.edu:3182943] mca:base:select:(  ras) Querying component [testrm]
+[ccc0391.campuscluster.illinois.edu:3182943] mca:base:select:(  ras) Querying component [pbs]
+[ccc0391.campuscluster.illinois.edu:3182943] mca:base:select:(  ras) Querying component [slurm]
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:slurm: available for selection
+[ccc0391.campuscluster.illinois.edu:3182943] mca:base:select:(  ras) Query of component [slurm] set priority to 50
+[ccc0391.campuscluster.illinois.edu:3182943] mca:base:select:(  ras) Selected component [slurm]
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: close: unloading component simulator
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: close: unloading component testrm
+[ccc0391.campuscluster.illinois.edu:3182943] mca: base: close: unloading component pbs
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:base:allocate
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:slurm:allocate:discover: checking nodelist: ccc[0391-0392]
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:slurm:allocate:discover: parse range 0391-0392 (2)
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:slurm:allocate:discover: adding node ccc0391 (32 slots)
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:slurm:allocate:discover: adding node ccc0392 (32 slots)
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:slurm:allocate: success
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:base:node_insert inserting 2 nodes
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:base:node_insert updating HNP [ccc0391] info to 32 slots
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:base:node_insert node ccc0392 slots 32
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:base:allocate
+[ccc0391.campuscluster.illinois.edu:3182943] [prterun-ccc0391-3182943@0,0] ras:base:allocate allocation already read

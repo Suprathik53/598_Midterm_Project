@@ -1,0 +1,25 @@
+-- Configuring done (0.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: /u/sv53/implicit-heat-mpi/build
+[100%] Built target implicit_heat
+PASS jacobi nondivisible N=17 P=1, iterations=320
+PASS jacobi nondivisible N=17 P=2, iterations=320
+PASS jacobi nondivisible N=17 P=3, iterations=320
+PASS jacobi nondivisible N=17 P=4, iterations=320
+PASS jacobi discrete analytic sine
+PASS jacobi independent dense serial solve
+PASS jacobi zero RHS
+PASS jacobi nonconvergence
+PASS jacobi convergence on final allowed update
+PASS jacobi fixed-time continuous refinement: [0.036806218790868914, 0.008896627146724465, 0.002165189554178282]
+PASS cg nondivisible N=17 P=1, iterations=77
+PASS cg nondivisible N=17 P=2, iterations=77
+PASS cg nondivisible N=17 P=3, iterations=77
+PASS cg nondivisible N=17 P=4, iterations=77
+PASS cg discrete analytic sine
+PASS cg independent dense serial solve
+PASS cg zero RHS
+PASS cg nonconvergence
+PASS cg convergence on final allowed update
+PASS cg fixed-time continuous refinement: [0.036806218779571735, 0.008896627107669487, 0.002165189453776849]
+All integration tests passed.
