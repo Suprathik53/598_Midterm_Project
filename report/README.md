@@ -2,6 +2,8 @@
 
 `report.pdf` is the five-page, reader-focused report. `report.tex` follows the supplied article template with the team header, numbered sections, equations, tables, and figures. It contains no code listings. `report.md` contains the same narrative for easy reading in the repository.
 
+For the quick two-page version, use `summary.pdf`. Its editable sources are `summary.tex` and `summary.md`; `summary-latex-source.zip` includes the LaTeX and required figure. Regenerate it from the project root with `python3 report/build_summary.py`. The summary does not overwrite the detailed report.
+
 ## Compile the LaTeX source
 
 Keep `report.tex` beside the `figures/` directory. Compile from this directory with `pdflatex report.tex`, or upload `report-latex-source.zip` to Overleaf and choose `report.tex` as the main document. The source ZIP includes both figure PDFs.
